@@ -24,11 +24,11 @@ import { useThreads } from "@/app/hooks/useThreads";
 type StatusFilter = "all" | "idle" | "busy" | "interrupted" | "error";
 
 const GROUP_LABELS = {
-  interrupted: "Requiring Attention",
-  today: "Today",
-  yesterday: "Yesterday",
-  week: "This Week",
-  older: "Older",
+  interrupted: "需要注意",
+  today: "今天",
+  yesterday: "昨天",
+  week: "本周",
+  older: "更早",
 } as const;
 
 const STATUS_COLORS: Record<ThreadItem["status"], string> = {
@@ -210,7 +210,7 @@ export function ThreadList({
     <div className="absolute inset-0 flex flex-col">
       {/* Header with title, filter, and close button */}
       <div className="grid flex-shrink-0 grid-cols-[1fr_auto] items-center gap-3 border-b border-border p-4">
-        <h2 className="text-lg font-semibold tracking-tight">Threads</h2>
+        <h2 className="text-lg font-semibold tracking-tight">历史对话</h2>
         <div className="flex items-center gap-2">
           <Select
             value={statusFilter}

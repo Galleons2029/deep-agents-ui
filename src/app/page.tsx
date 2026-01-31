@@ -113,7 +113,7 @@ function HomePageInner({
       <div className="flex h-screen flex-col">
         <header className="flex h-16 items-center justify-between border-b border-border px-6">
           <div className="flex items-center gap-4">
-            <h1 className="text-xl font-semibold">Deep Agent UI</h1>
+            <h1 className="text-xl font-semibold">深度研究智能体</h1>
             {!sidebar && (
               <Button
                 variant="ghost"
@@ -133,7 +133,7 @@ function HomePageInner({
           </div>
           <div className="flex items-center gap-2">
             <div className="text-sm text-muted-foreground">
-              <span className="font-medium">Assistant:</span>{" "}
+              <span className="font-medium">智能体:</span>{" "}
               {config.assistantId}
             </div>
             <Button
@@ -142,7 +142,7 @@ function HomePageInner({
               onClick={() => setConfigDialogOpen(true)}
             >
               <Settings className="mr-2 h-4 w-4" />
-              Settings
+              设置
             </Button>
             <Button
               variant="outline"
@@ -152,7 +152,7 @@ function HomePageInner({
               className="border-[#2F6868] bg-[#2F6868] text-white hover:bg-[#2F6868]/80"
             >
               <SquarePen className="mr-2 h-4 w-4" />
-              New Thread
+              新对话
             </Button>
           </div>
         </header>
