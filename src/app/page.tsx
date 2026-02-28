@@ -122,7 +122,7 @@ function HomePageInner({
                 className="rounded-md border border-border bg-card p-3 text-foreground hover:bg-accent"
               >
                 <MessagesSquare className="mr-2 h-4 w-4" />
-                Threads
+                历史对话
                 {interruptCount > 0 && (
                   <span className="ml-2 inline-flex min-h-4 min-w-4 items-center justify-center rounded-full bg-destructive px-1 text-[10px] text-destructive-foreground">
                     {interruptCount}

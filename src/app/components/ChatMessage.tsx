@@ -4,6 +4,10 @@ import React, { useMemo, useState, useCallback } from "react";
 import { SubAgentIndicator } from "@/app/components/SubAgentIndicator";
 import { ToolCallBox } from "@/app/components/ToolCallBox";
 import { MarkdownContent } from "@/app/components/MarkdownContent";
+import {
+  extractComponentConfig,
+  CustomComponentRenderer,
+} from "@/app/components/custom-component-registry";
 import type {
   SubAgent,
   ToolCall,
@@ -84,6 +88,12 @@ export const ChatMessage = React.memo<ChatMessageProps>(
       }));
     }, []);
 
+    // 提取自定义组件配置
+    const componentConfig = useMemo(() => {
+      if (isUser) return null;
+      return extractComponentConfig(message);
+    }, [message, isUser]);
+
     return (
       <div
         className={cn(
@@ -120,6 +130,12 @@ export const ChatMessage = React.memo<ChatMessageProps>(
                   <MarkdownContent content={messageContent} />
                 ) : null}
               </div>
+            </div>
+          )}
+          {/* 渲染自定义组件（图表、表格、图片等） */}
+          {!isUser && componentConfig && (
+            <div className="mt-4">
+              <CustomComponentRenderer config={componentConfig} />
             </div>
           )}
           {hasToolCalls && (
